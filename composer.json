@@ -19,7 +19,7 @@
     },
     "require": {
         "firebase/php-jwt": "^6.0",
-        "codercat/jwk-to-pem": "^0.0.3",
+        "codercat/jwk-to-pem": "1.1",
         "php": ">=7.0"
     },
     "require-dev": {
