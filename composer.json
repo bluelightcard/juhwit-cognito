@@ -1,5 +1,5 @@
 {
-    "name": "teamgantt/juhwit",
+    "name": "bluelightcard/juhwit",
     "description": "Verify JWTs from AWS Cognito",
     "type": "library",
     "license": "MIT",
