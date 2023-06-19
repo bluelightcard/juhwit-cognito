@@ -64,7 +64,9 @@ class JwtDecoder implements DecoderInterface
         list($header) = $this->validateStructure($token);
         $headerData = json_decode($header, true);
         $kid = $headerData['kid'];
-
+        if ($kid === null || $token === null) {
+            return null;
+        }
         $claims = $this->getVerifiedToken($kid, $token);
         $token = $this->tokenFactory->create($claims, $requiredClaims);
 
