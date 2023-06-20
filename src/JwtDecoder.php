@@ -14,6 +14,7 @@ use TeamGantt\Juhwit\Exceptions\InvalidJwkException;
 use TeamGantt\Juhwit\Exceptions\InvalidStructureException;
 use TeamGantt\Juhwit\Exceptions\UnknownException;
 use TeamGantt\Juhwit\Models\TokenInterface;
+use Exception;
 
 /**
  * @see https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-verifying-a-jwt.html
@@ -65,7 +66,7 @@ class JwtDecoder implements DecoderInterface
         $headerData = json_decode($header, true);
         $kid = $headerData['kid'];
         if ($kid === null || $token === null) {
-            return null;
+            throw new Exception('kid is null');
         }
         $claims = $this->getVerifiedToken($kid, $token);
         $token = $this->tokenFactory->create($claims, $requiredClaims);
