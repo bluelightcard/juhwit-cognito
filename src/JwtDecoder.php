@@ -59,7 +59,7 @@ class JwtDecoder implements DecoderInterface
      *
      * @return array
      */
-    public function decode(string $token, array $requiredClaims = []): TokenInterface | null
+    public function decode(string $token, array $requiredClaims = []): TokenInterface
     {
         list($header) = $this->validateStructure($token);
         $headerData = json_decode($header, true);
